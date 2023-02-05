@@ -1,0 +1,1 @@
+El test C1 y el posible test C5 no aportan ningún valor ya que no prueba ninguna condición nueva.
