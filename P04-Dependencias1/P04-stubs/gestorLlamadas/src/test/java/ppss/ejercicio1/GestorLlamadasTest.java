@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GestorLlamadasTest {
     GestorLlamadaStub gls = new GestorLlamadaStub();
     @Test
-    @Tag("ej1")
     public void gestorLlamadaC1() {
         gls.setHora(15);
         double precio = gls.calculaConsumo(10);
