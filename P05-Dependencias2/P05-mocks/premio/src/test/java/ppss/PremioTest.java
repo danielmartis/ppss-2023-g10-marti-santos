@@ -31,10 +31,9 @@ public class PremioTest {
         Premio pm = EasyMock.partialMockBuilder(Premio.class).addMockedMethod("generaNumero").mock(ctrl);
         pm.setCliente(cm);
         EasyMock.expect(pm.generaNumero()).andStubReturn(0.03f);
-        try{
-            EasyMock.expect(cm.obtenerPremio()).andStubThrow(new ClienteWebServiceException("No se ha podido obtener el premio"));
-        } catch(ClienteWebServiceException e){
-        }
+        assertDoesNotThrow(()-> EasyMock.expect(cm.obtenerPremio()).andStubThrow(new ClienteWebServiceException("No se ha podido obtener el premio")));
+
+
         //EasyMock.expect(cm.obtenerPremio()).andStubThrow(new ClienteWebServiceException("No se ha podido obtener el premio")));
 
         //EasyMock.expectLastCall().andStubThrow(new ClienteWebServiceException("No se ha podido obtener el premio"));

@@ -20,6 +20,7 @@ public class FicheroTexto {
             while (i != -1) {
                 i = fichero.read();
                 contador++;
+                System.out.println((char) i);
             }
             contador--;
         } catch (FileNotFoundException e1) {
