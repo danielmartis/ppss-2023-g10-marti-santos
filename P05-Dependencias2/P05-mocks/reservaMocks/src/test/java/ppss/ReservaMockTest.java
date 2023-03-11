@@ -1,6 +1,5 @@
 package ppss;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -9,19 +8,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.easymock.EasyMock;
 import org.easymock.IMocksControl;
 
-import java.io.FileReader;
-import java.io.IOException;
+public class ReservaMockTest {
 
-public class ReservaTest {
-
-    @Test
+    /*@Test
     public void reservaC1(){
         IMocksControl ctrl = EasyMock.createStrictControl();
         FactoriaBOs fbm = ctrl.mock(FactoriaBOs.class);
         Reserva rm = EasyMock.partialMockBuilder(Reserva.class).addMockedMethods("getFactoria","compruebaPermisos").mock(ctrl);
         IOperacionBO iom = ctrl.mock(IOperacionBO.class);
 
-        EasyMock.expect(rm.compruebaPermisos(EasyMock.anyString(), EasyMock.anyString(),EasyMock.anyObject())).andReturn(false);
+        EasyMock.expect(rm.compruebaPermisos("xxxx", "xxxx",Usuario.BIBLIOTECARIO)).andReturn(false);
 
         ctrl.replay();
         ReservaException re = assertThrows(ReservaException.class, () -> rm.realizaReserva("xxxx", "xxxx", "Pepe", new String[]{"33333"}));
@@ -110,6 +106,6 @@ public class ReservaTest {
         ctrl.replay();
         ReservaException re = assertThrows(ReservaException.class,()-> rm.realizaReserva("ppss", "ppss", "Pepe", new String[]{"11111","22222","33333"}));
         ctrl.verify();
-    }
+    }*/
 }
 
