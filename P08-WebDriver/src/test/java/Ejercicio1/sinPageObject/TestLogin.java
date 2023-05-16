@@ -1,6 +1,5 @@
 package Ejercicio1.sinPageObject;
 
-import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -69,6 +68,6 @@ public class TestLogin {
 
     @AfterEach
     public void end(){
-        driver.close();
+        //driver.close();
     }
 }
