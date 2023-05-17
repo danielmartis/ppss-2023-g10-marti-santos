@@ -49,6 +49,8 @@ public class ShoesPage {
     }
 
     public Products compare(){
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("scrollIntoView()", compare);
         compare.click();
         ventana = driver.getWindowHandle();
         Set<String> setIds = driver.getWindowHandles();

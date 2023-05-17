@@ -4,11 +4,15 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.junit.jupiter.api.Assertions;
+
+import java.time.Duration;
+
 @TestInstance(Lifecycle.PER_CLASS)
 public class TestShoes {
-    public WebDriver driver = new ChromeDriver();
+    public WebDriver driver;
     MyAccountPage ma;
     ShoesPage sp;
 
@@ -20,9 +24,14 @@ public class TestShoes {
 
     @BeforeEach
     public void onSetup(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        boolean headless = Boolean.parseBoolean(System.getProperty("chromeHeadless"));
+        chromeOptions.setHeadless(headless);
+        driver = new ChromeDriver(chromeOptions);
         Cookies.loadCookiesFromFile(driver);
         driver.manage().window().maximize();
         driver.get("http://demo-store.seleniumacademy.com/customer/account/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         ma = PageFactory.initElements(driver, MyAccountPage.class);
 
     }
