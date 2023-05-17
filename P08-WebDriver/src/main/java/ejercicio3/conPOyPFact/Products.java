@@ -2,6 +2,7 @@ package ejercicio3.conPOyPFact;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,17 +13,23 @@ public class Products {
     WebDriver driver;
     @FindBy(xpath = "//*[@id=\"top\"]/body/div/div[3]/button/span/span")
     WebElement close;
+
+    String handleId;
+    String handleIdFrom;
     public Products(WebDriver wd){
         driver = wd;
     }
 
-    public void close(){
-        Set<String> setIds = driver.getWindowHandles();
-        String[] handleIds = setIds.toArray(new String[setIds.size()]);
+    public ShoesPage close(){
         close.click();
-        driver.switchTo().window(handleIds[0]);
+        driver.switchTo().window(handleIdFrom);
+        return PageFactory.initElements(driver, ShoesPage.class);
+    }
 
-
-
+    public void setHandleId(String h){
+        handleId = h;
+    }
+    public void setHandleIdFrom(String h){
+        handleIdFrom = h;
     }
 }

@@ -50,13 +50,16 @@ public class ShoesPage {
 
     public Products compare(){
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("scrollIntoView()", compare);
+        jse.executeScript("arguments[0].scrollIntoView()", compare);
         compare.click();
         ventana = driver.getWindowHandle();
         Set<String> setIds = driver.getWindowHandles();
         String[] handleIds = setIds.toArray(new String[setIds.size()]);
-        driver.switchTo().window(handleIds[1]);
+
         prod = PageFactory.initElements(driver, Products.class);
+        prod.setHandleId(handleIds[1]);
+        prod.setHandleIdFrom(handleIds[0]);
+        driver.switchTo().window(handleIds[1]);
         return prod;
     }
 

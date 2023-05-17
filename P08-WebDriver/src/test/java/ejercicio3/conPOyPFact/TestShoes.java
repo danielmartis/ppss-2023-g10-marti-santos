@@ -45,7 +45,7 @@ public class TestShoes {
         sp.selectShoeToCompare(6);
         pro = sp.compare();
         Assertions.assertEquals("Products Comparison List - Magento Commerce", driver.getTitle());
-        pro.close();
+        sp = pro.close();
         Assertions.assertEquals("Shoes - Accessories", driver.getTitle());
         sp.clear();
         String mensaje = sp.getMensaje();
