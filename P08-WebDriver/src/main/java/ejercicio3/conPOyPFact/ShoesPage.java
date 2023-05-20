@@ -18,10 +18,10 @@ public class ShoesPage {
     @FindBy(xpath = "/html/body/div/div[2]/div[2]/div/div[2]/div[2]/div[3]/ul/li[6]/div/div[2]/ul/li[2]/a")
     WebElement suedeShoe;
 
-    @FindBy(xpath = "/html/body/div/div[2]/div[2]/div/div[3]/div/div[2]/div/button")
+    @FindBy(css = "button.button[title='Compare']")
     WebElement compare;
 
-    @FindBy(xpath = "/html/body/div/div[2]/div[2]/div/div[3]/div/div[2]/div/a")
+    @FindBy(linkText = "Clear All")
     WebElement clear;
 
     @FindBy(xpath = "//*[@id=\"top\"]/body/div/div[2]/div[2]/div/div[2]/div[2]/ul/li/ul/li")

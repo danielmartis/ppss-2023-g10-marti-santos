@@ -6,15 +6,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 public class TestLogin2 {
 
-    public WebDriver driver = new ChromeDriver();
+    public WebDriver driver;
     public CustomerLoginPage clp;
 
     public HomePage hp;
     public MyAccountPage map;
     @BeforeEach
     public void onSetup(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        boolean headless = Boolean.parseBoolean(System.getProperty("chromeHeadless"));
+        chromeOptions.setHeadless(headless);
+        driver = new ChromeDriver(chromeOptions);
         driver.get("http://demo-store.seleniumacademy.com");
         driver.manage().window().maximize();
         hp = new HomePage(driver);

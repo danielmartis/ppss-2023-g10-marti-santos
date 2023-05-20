@@ -8,16 +8,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
 public class TestLogin {
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver;
 
     @BeforeEach
     public void onSetup(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        boolean headless = Boolean.parseBoolean(System.getProperty("chromeHeadless"));
+        chromeOptions.setHeadless(headless);
+        driver = new ChromeDriver(chromeOptions);
         driver.get("http://demo-store.seleniumacademy.com");
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
     @Test
@@ -68,6 +74,6 @@ public class TestLogin {
 
     @AfterEach
     public void end(){
-        //driver.close();
+        driver.close();
     }
 }
